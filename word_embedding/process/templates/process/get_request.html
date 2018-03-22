@@ -1,0 +1,193 @@
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<style type="text/css">
+	
+.container {
+  max-width: 960px;
+}
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+  color: #999;
+  transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+</style>
+
+{% load staticfiles %}
+
+{% csrf_token %}
+
+<!--link rel="stylesheet" href="{% static 'css/Predict.css' %}"-->
+
+<head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		
+		function btn_click_fn() {
+
+			var check = 0;
+
+			alert("Hai");
+    		
+    		if($('.check').is(":checked"))
+    		{
+    			check = 1;
+    		}
+
+    		$.post("http://127.0.0.1:8000/",
+    		{
+        		input_text: $("textarea#input_text").val(),
+        		csrfmiddlewaretoken : $("input[name=csrfmiddlewaretoken]").val()
+
+    		},
+    
+    		function(data, status){
+        		$("#result").html(data);
+    		});
+
+		}
+
+
+		function list_all_nodes() {
+
+    		$.post("http://127.0.0.1:8000/list/",
+    		{
+       
+        		csrfmiddlewaretoken : $("input[name=csrfmiddlewaretoken]").val()
+
+    		},
+    
+    		function(data, status){
+        		$("#node_list").html(data);
+    		});
+
+		}
+
+	</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+	<body content="text/html" >
+
+		<nav class="site-header sticky-top py-1">
+      		<div class="container d-flex flex-column flex-md-row justify-content-between">
+        		<a class="py-2" href="#">
+          			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+        		</a>
+        		<a class="py-2 d-none d-md-inline-block" href="#"></a>
+        		<a class="py-2 d-none d-md-inline-block" href="#"></a>
+        		<a class="py-2 d-none d-md-inline-block" href="#"></a>
+        		<a class="py-2 d-none d-md-inline-block" href="#"></a>
+        		<a class="py-2 d-none d-md-inline-block" href="#"></a>
+        		<a class="py-2 d-none d-md-inline-block" href="#"></a>
+        		<a class="py-2 d-none d-md-inline-block" href="#"></a>
+      		</div>
+    	</nav>
+
+    	<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+      		<div class="col-md-5 p-lg-5 mx-auto my-5">
+        		<h1 class="display-4 font-weight-normal">Enter The Text</h1>
+        		<p class="lead font-weight-normal"><textarea id='input_text' class="form form-control input_text" name="input_text"  ></textarea></p>
+        		<a class="btn btn-outline-secondary btn-default" onclick="btn_click_fn()" >Submit</a>
+      		</div>
+      		<div class="product-device box-shadow d-none d-md-block"></div>
+      		<div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    	</div>
+
+		<div class='row' style='margin-top:20px;'>
+
+			<div class='col-md-2' >
+			</div>
+
+			<div class='col-md-8' >
+
+				<!--textarea id='input_text' class="form form-control input_text" name="input_text"  ></textarea-->
+				
+			</div>
+
+			<div class='col-md-2' >
+			</div>
+
+		</div>
+
+		<div class='row' style='margin-top:20px;'>
+
+			<div class='col-md-4' >
+			</div>
+
+			<div class='col-md-4'>
+
+				<!-- button class="btn btn-sm btn-default">Submit	</button-->
+
+			</div>
+
+			<div class='col-md-4' >
+			</div>
+
+		</div>
+
+		<div class='row' style='margin-top:20px;'>
+
+			<div class='col-md-4' >
+			</div>
+
+			<div class='col-md-4' >
+
+				
+
+			</div>
+
+			<div class='col-md-4' >
+			</div>
+
+		</div>
+
+		<div class='row' style='margin-top:20px;'>
+
+			<div class='col-md-4' >
+			</div>
+
+			<div class='col-md-4' id="result" >
+
+				
+
+			</div>
+
+			<div class='col-md-4' >
+			</div>
+
+		</div>
+
+
+		<div class='row' style='margin-top:20px;'>
+
+			<div class='col-md-6' id='node_list' >
+			</div>
+
+			<div class='col-md-6' id='' >
+			</div>
+
+		</div>
+
+	</body>
