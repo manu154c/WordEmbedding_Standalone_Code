@@ -139,13 +139,15 @@ def sigmoid (x):
 def derivatives_sigmoid(x):
 	return x * (1 - x)
 
-def softmax(inputs):
+def softmax(x):
+    """Calculate softmax based probability for given input vector
+    # Arguments
+        x: numpy array/list
+    # Returns
+        softmax of input array
     """
-    Calculate the softmax for the give inputs (array)
-    :param inputs:
-    :return:
-    """
-    return np.exp(inputs) / float(sum(np.exp(inputs)))
+    e_x = np.exp(x - np.max(x))
+    return e_x / e_x.sum(axis=0)
 
 
 def perform_neural_networking(input_vector):
@@ -159,7 +161,7 @@ def perform_neural_networking(input_vector):
 	y=np.array(no_of_input_neuron*inside_list)
 
 	#Variable initialization
-	epoch=5000 #Setting training iterations
+	epoch=5 #Setting training iterations
 	lr=0.1 #Setting learning rate
 	inputlayer_neurons = X.shape[1] #number of features in data set
 	hiddenlayer_neurons = 3 #number of hidden layers neurons
@@ -183,7 +185,7 @@ def perform_neural_networking(input_vector):
 
 		#Backpropagation
 		E = y-output
-		pdb.set_trace()
+		#pdb.set_trace()
 		slope_output_layer = derivatives_sigmoid(output)
 		slope_hidden_layer = derivatives_sigmoid(hiddenlayer_activations)
 		d_output = E * slope_output_layer
@@ -194,7 +196,7 @@ def perform_neural_networking(input_vector):
 		wh += X.T.dot(d_hiddenlayer) *lr
 		bh += np.sum(d_hiddenlayer, axis=0,keepdims=True) *lr
 
-		pdb.set_trace()
+		#pdb.set_trace()
 
 	return output
 
