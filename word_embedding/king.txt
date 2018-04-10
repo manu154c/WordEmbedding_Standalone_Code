@@ -1,0 +1,39 @@
+king kindom queen kindom king palace queen palace king royal queen royal king George queen Mary man rice woman rice man farmer woman farmer man house woman house man George woman Mary
+
+The easiest way to think about words and how they can be added and subtracted like vectors is with an example. The most famous is the following: king – man + woman = queen. In other words, adding the vectors associated with the words king and woman while subtracting man is equal to the vector associated with queen. This describes a gender relationship.
+
+For a language model to be able to predict the meaning of text, it needs to be aware of the contextual similarity of words. 
+
+For instance, that we tend to find fruit words (like apple or orange) in sentences where they’re grown, picked, eaten and juiced, but wouldn’t expect to find those same concepts in such close proximity to, say, the word aeroplane.
+
+words that regularly occur nearby in text will also be in close proximity in vector space
+
+simple vector addition can often produce meaningful results. 
+
+A) singular/plural relation
+
+B) good at answering analogy questions of the form a is to b as c is to ?
+	Eg: man is to woman as uncle is to ? (aunt)
+		King – Man + Woman = ? (queen)
+
+C) algebraic operations are performed on the word vectors
+ 	Eg : vector(“King”) – vector(“Man”) + vector(“Woman”) = vector("Queen").
+
+D) country-capital city relationship
+
+Word vectors with such semantic relationships could be used to improve many existing NLP applications, such as machine translation, information retrieval and question answering systems, and lots of other NLP applications
+
+The goal is produce probabilities for words in the output layer.
+
+using vectors to represent the whole phrases makes the Skip-gram model considerably more expressive.
+
+The extension from word based to phrase based models is relatively simple. First we identify a large number of phrases using a data-driven approach, and then we treat the phrases as individual tokens during the training.
+
+To evaluate the quality of the phrase vectors, we developed a test set of analogical reasoning tasks that contains both words and phrases.
+	- A typical analogy pair from our test set is “Montreal”:“Montreal Canadiens”::“Toronto”:“Toronto Maple Leafs”.
+	-  It is considered to have been answered correctly if the nearest representation to vec(“Montreal Canadiens”) - vec(“Montreal”) + vec(“Toronto”) is vec(“Toronto Maple Leafs”).
+
+
+The input of the skip-gram model is a single word wI and the output is the words in wI's context { wO1, wO2.... wOc } defined by a word window of size . 
+
+The embedding matrix is of rank (vocab-size, embedding-size) and projects a sparse vector of rank vocab-size into a dense vector of rank embedding-size. The dense vector represents the position of the word in "word2vec" space. Because you are squeezing the word into a smaller space based on training it against its context, words with similar context tend to cluster in this space.

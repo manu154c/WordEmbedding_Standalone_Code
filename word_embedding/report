@@ -1,0 +1,28 @@
+Introduction to collocation # Importent in word embedding
+	Frequency Based (CNF)
+	Mean and Varience (CNF)
+	Hypothesis Testing (CNF)
+
+Hidden Markov chain # Language modeling (CNF)
+
+Word Embedding # detailed example + two models ()
+	- Frequency Based. 
+	- Prediction Based. (Explain Skip-garm and CBOW with figure)
+
+Literature Survey
+
+Design # explain the neuralnet diagram
+
+Languages Used
+
+Implementation
+
+Future Works
+
+
+Collocation
+====================
+
+In corpus linguistics, a collocation is a sequence of words or terms that co-occur more often than would be expected by chance. In phraseology, collocation is a sub-type of phraseme. An example of a phraseological collocation is the expression strong tea. 
+
+There are about six main types of collocations: adjective+noun, noun+noun (such as collective nouns), verb+noun, adverb+adjective, verbs+prepositional phrase (phrasal verbs), and verb+adverb.
