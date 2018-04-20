@@ -26,3 +26,38 @@ Collocation
 In corpus linguistics, a collocation is a sequence of words or terms that co-occur more often than would be expected by chance. In phraseology, collocation is a sub-type of phraseme. An example of a phraseological collocation is the expression strong tea. 
 
 There are about six main types of collocations: adjective+noun, noun+noun (such as collective nouns), verb+noun, adverb+adjective, verbs+prepositional phrase (phrasal verbs), and verb+adverb.
+
+NLP
+========
+
+Human language is distinct from all other known animal forms of communication in being compositional. Human language allows speakers to express thoughts in sentences comprising subjects, verbs and objects—such as ‘I kicked the ball’—and recognizing past, present and future tenses. Compositionality gives human language an endless capacity for generating new sentences as speakers combine and recombine sets of words into their subject, verb and object roles.
+
+Natural Language Processign aims to apply computational techniques like information extraction, summerization, word sense disambiguation on textual information to understand the knowledge presented in the text.
+
+Word Embedding
+=======================
+
+Simply word embedding aims to convert a word into a numeric value. The idea behind convertion into numeric value such that word with similar features tend to have similar value and words with distinct value represents words with non similar features. Feature includes semantic and syntactic occurences of the word. 
+
+Word embedding is the collective name for a set of language modeling and feature learning techniques in natural language processing (NLP) where words or phrases from the vocabulary are mapped to vectors of real numbers. Conceptually it involves a mathematical embedding from a space with one dimension per word to a continuous vector space with much higher dimension. 
+
+Methods to generate this mapping include neural networks, dimensionality reduction on the word co-occurrence matrix, probabilistic models, and explicit representation in terms of the context in which words appear.
+
+Word and phrase embeddings, when used as the underlying input representation, have been shown to boost the performance in NLP tasks such as syntactic parsing and sentiment analysis.
+
+HMM
+=============
+
+A Markov chain is a mathematical system that experiences transitions from one state to another according to certain probabilistic rules. The defining characteristic of a Markov chain is that no matter how the process arrived at its present state, the possible future states are fixed. In other words, the probability of transitioning to any particular state is dependent solely on the current state and time elapsed. The state space, or set of all possible states, can be anything: letters, numbers, weather conditions, baseball scores, or stock performances.
+
+A Markov chain is a stochastic process, but it differs from a general stochastic process in that a Markov chain must be "memory-less". That is, (the probability of) future actions are not dependent upon the steps that led up to the present state. This is called the Markov property.
+
+In simpler Markov models (like a Markov chain), the state is directly visible to the observer, and therefore the state transition probabilities are the only parameters, while in the hidden Markov model, the state is not directly visible, but the output (in the form of data or "token" in the following), dependent on the state, is visible. Each state has a probability distribution over the possible output tokens.
+
+Design
+===============
+
+The skip-gram neural network model is actually surprisingly simple in its most basic form. First train a simple neural network with a single hidden layer to perform a certain task. The task is given a specific word in the middle of a sentence (the input word), look at the words nearby and pick one at random then network will predict probability for every word in our vocabulary of being the "nearby word" that we chose.The output probabilities are going to relate to how likely it is find each vocabulary word nearby our input word. For example, if you gave the trained network the input word "Soviet", the output probabilities are going to be much higher for words like "Union" and "Russia" than for unrelated words like "watermelon" and "kangaroo". But then we're not actually going to use that neural network for the probability prediction task. Instead, the goal is to learn the weights of the hidden layer which is the "word vectors" that we're trying to learn.
+
+
+We can train the neural network to find weights by feeding it word pairs found in our training documents. The below example shows some of the training samples (word pairs) we would take from the sentence "The quick brown fox jumps over the lazy dog." Window size used in this example is 2. The word highlighted in blue is the input word.
